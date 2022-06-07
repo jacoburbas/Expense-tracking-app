@@ -1,0 +1,53 @@
+.history {
+  grid-area: 5/5/13/9;
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  padding: 0 1vw !important;
+  align-items: center;
+  border-top: 1.2vw solid white;
+  border-bottom: 1.2vw solid white;
+}
+
+/* custom scroll*/
+.history::-webkit-scrollbar {
+  width: 0.5vw;
+}
+
+.history::-webkit-scrollbar-track {
+  opacity: 0;
+}
+
+.history::-webkit-scrollbar-thumb {
+  border-radius: 15px;
+}
+
+.history:hover::-webkit-scrollbar-thumb {
+  background: rgba(122, 132, 255, 0.6);
+}
+
+#endBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#endBtn > button {
+  padding: 0.7vw;
+  border-radius: 30px;
+  background-image: linear-gradient(30deg, rgb(57, 57, 255), rgb(119, 0, 255));
+  border: none;
+  color: white;
+  transition: 150ms ease-in-out;
+}
+#endBtn > button:hover {
+  transform: scale(1.05);
+  background-image: linear-gradient(
+    80deg,
+    rgb(57, 57, 255),
+    rgb(119, 0, 255)
+  ) !important;
+  cursor: pointer;
+}

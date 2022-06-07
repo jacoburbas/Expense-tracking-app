@@ -1,0 +1,11 @@
+@import url(creditCard.css);
+
+.balance {
+  grid-area: 1/3/5/9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.lineChart {
+  width: 25vw;
+}

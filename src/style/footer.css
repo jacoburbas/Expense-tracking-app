@@ -1,0 +1,11 @@
+footer {
+  grid-area: 12/1/13/13;
+  color: white;
+  display: flex;
+  text-align: center;
+  height: 5vw;
+  line-height: 1.6vw;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}

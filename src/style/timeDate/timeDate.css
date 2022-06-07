@@ -1,0 +1,23 @@
+.timeDate {
+  grid-area: 1/1/5/3;
+  display: flex;
+  flex-direction: column;
+  padding: 0 !important;
+  font-size: 3vw;
+  background: none !important;
+  box-shadow: none !important;
+  font-family: "Segoe UI" !important;
+}
+
+#day-month {
+  color: var(--main);
+}
+
+#year {
+  color: white;
+}
+#day,
+#month,
+#year {
+  margin-top: -0.6vw;
+}
