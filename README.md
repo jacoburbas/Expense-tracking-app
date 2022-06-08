@@ -1,3 +1,8 @@
+Small React app that uses graphs to show you, what are you spending your hard earned money on.
+
+![screen](https://user-images.githubusercontent.com/60938716/172372073-6eff2c34-28f0-4891-9da5-a66d88faa8f2.png)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
