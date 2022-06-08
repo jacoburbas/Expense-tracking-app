@@ -1,34 +1,26 @@
-import React, { useState } from "react";
-import "../style/balance/balance.css";
+import React, { useState, useEffect } from "react";
 import { Line } from "react-chartjs-2";
+import "../style/balance/balance.css";
 
 const Balance = ({ records }) => {
+  useEffect(() => {
+    setCurrentBalance(records[0].accState);
+  });
+
+  const [currentBalance, setCurrentBalance] = useState();
+
   if (records) {
     //accBalance history chart
+    const dateAccBalance = records.map((e) => [e.date, e.accState]);
 
-    const dateAccBalance = records.map((e) => {
-      return [e.date, e.accState];
-    });
-
-    const uniqueDates = [
-      ...new Set(
-        records.map((e) => {
-          return e.date;
-        })
-      ),
-    ].sort();
+    const uniqueDates = [...new Set(records.map((e) => e.date))].sort();
 
     const accStateDaily = [];
 
     uniqueDates.forEach((date) => {
       let tempBalance = dateAccBalance
-        .filter((e) => {
-          return e[0] === date;
-        })
-        .map((e) => {
-          return e[1];
-        });
-
+        .filter((e) => e[0] === date)
+        .map((e) => e[1]);
       accStateDaily.push(tempBalance[0]);
     });
 
@@ -74,8 +66,6 @@ const Balance = ({ records }) => {
       },
     };
 
-    const [currentBalance] = useState(records[0].accState);
-
     return (
       <div className="balance">
         <div className="card-box">
@@ -94,6 +84,7 @@ const Balance = ({ records }) => {
             **** **** **** <span>1234</span>
           </div>
         </div>
+
         <div className="lineChart">
           <Line data={lineData} options={lineOptions} />
         </div>

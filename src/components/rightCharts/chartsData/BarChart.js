@@ -1,37 +1,34 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Bar } from "react-chartjs-2";
 
-export const BarLabels = [];
-export const monthlyExpenses = [];
-export const monthlyIncome = [];
+export let BarLabels = [];
+export let monthlyExpenses = [];
+export let monthlyIncome = [];
 export let uniqueMonths = [];
 
 const BarChart = ({ records }) => {
+  useEffect(() => {
+    BarLabels = [];
+    monthlyExpenses = [];
+    monthlyIncome = [];
+    uniqueMonths = [];
+  });
+
   if (records) {
     uniqueMonths = [
-      ...new Set(
-        records
-          .map((e) => {
-            return e.date;
-          })
-          .map((e) => {
-            return e[5] + e[6];
-          })
-      ),
+      ...new Set(records.map((e) => e.date).map((e) => e[5] + e[6])),
     ].sort();
 
-    let uniqueMonthsWithExp = [];
+    const uniqueMonthsWithExp = [];
 
     uniqueMonths.forEach((month) => {
       uniqueMonthsWithExp.push(
         ...new Set(
           records
-            .filter((e) => {
-              return e.date[5] + e.date[6] === month && e.checked === false;
-            })
-            .map((e) => {
-              return e.date[5] + e.date[6];
-            })
+            .filter(
+              (e) => (e.date[5] + e.date[6] === month) & (e.checked === false)
+            )
+            .map((e) => e.date[5] + e.date[6])
         )
       );
     });
@@ -42,12 +39,13 @@ const BarChart = ({ records }) => {
       uniqueMonthsWithInc.push(
         ...new Set(
           records
-            .filter((e) => {
-              return e.date[5] + e.date[6] === month && e.checked === true;
-            })
-            .map((e) => {
-              return e.date[5] + e.date[6];
-            })
+            .filter(
+              (e) =>
+                (e.date[5] + e.date[6] === month) &
+                (e.checked === true) &
+                (e.type !== "Starting amount")
+            )
+            .map((e) => e.date[5] + e.date[6])
         )
       );
     });
@@ -74,30 +72,25 @@ const BarChart = ({ records }) => {
     uniqueMonthsWithExp.forEach((month) => {
       monthlyExpenses.push(
         records
-          .filter((e) => {
-            return (e.date[5] + e.date[6] === month) & (e.checked === false);
-          })
-          .map((e) => {
-            return e.amount;
-          })
-          .reduce((a, b) => {
-            return a + b;
-          })
+          .filter(
+            (e) => (e.date[5] + e.date[6] === month) & (e.checked === false)
+          )
+          .map((e) => e.amount)
+          .reduce((a, b) => a + b)
       );
     });
 
     uniqueMonthsWithInc.forEach((month) => {
       monthlyIncome.push(
         records
-          .filter((e) => {
-            return (e.date[5] + e.date[6] === month) & (e.checked === true);
-          })
-          .map((e) => {
-            return e.amount;
-          })
-          .reduce((a, b) => {
-            return a + b;
-          })
+          .filter(
+            (e) =>
+              (e.date[5] + e.date[6] === month) &
+              (e.checked === true) &
+              (e.type !== "Starting amount")
+          )
+          .map((e) => e.amount)
+          .reduce((a, b) => a + b)
       );
     });
   }

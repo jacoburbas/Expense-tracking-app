@@ -1,38 +1,22 @@
-import React, { useState, useEffect } from "react";
-import "../style/submit/submit.css";
+import React, { useState } from "react";
+import "../../style/submit/submit.css";
+import { expenseOptions, incomeOptions } from "./selectOptions";
 
-const Submit = ({ records, date, updateAccBal }) => {
+const Submit = ({ records, date, updateAccBal, setRecords }) => {
+  const array = expenseOptions.map((e, index) => {
+    return (
+      <option key={index} value={e.value}>
+        {e.text}
+      </option>
+    );
+  });
+
   const [type, setType] = useState("Food & Drinks");
   const [note, setNote] = useState("");
   const [checked, setChecked] = useState(false);
   const [amount, setAmount] = useState(0);
 
-  if (records[records.length - 1].isInitialized === true) {
-    useEffect(() => {
-      expenseOptions.forEach((e, index) => {
-        document.querySelector("select").add(expenseOptions[index]);
-      });
-    }, [0]);
-
-    const expenseOptions = [
-      new Option("Food & Drinks", "Food & Drinks"),
-      new Option("Transport", "Transport"),
-      new Option("Clothes", "Clothes"),
-      new Option("Home & Utilities", "Home & Utilities"),
-      new Option("Hobbys", "Hobbys"),
-      new Option("Health", "Health"),
-      new Option("Electronics", "Electronics"),
-      new Option("Rent", "Rent"),
-      new Option("Other", "Other"),
-    ];
-    const incomeOptions = [
-      new Option("Paycheck", "Paycheck"),
-      new Option("Investments", "Investments"),
-      new Option("Taxrefund", "Taxrefund"),
-      new Option("Hobbys", "Hobbys"),
-      new Option("Other", "Other"),
-    ];
-
+  if (records[records.length - 1].isInitialized) {
     const handleSubmit = (e) => {
       e.preventDefault();
 
@@ -47,14 +31,12 @@ const Submit = ({ records, date, updateAccBal }) => {
         };
 
         // updating local storage
-
         records.unshift(newRecord);
-
         updateAccBal(records);
-
         localStorage.setItem("json", JSON.stringify(records));
-        document.location.reload(true);
+        setRecords(JSON.parse(localStorage.getItem("json")));
       } else {
+        // add error class to input
         document.querySelector(".amount").classList.add("error");
         setTimeout(
           () => document.querySelector(".amount").classList.remove("error"),
@@ -114,7 +96,9 @@ const Submit = ({ records, date, updateAccBal }) => {
             name="type"
             value={type}
             onChange={(e) => setType(e.target.value)}
-          ></select>
+          >
+            {array}
+          </select>
           <label htmlFor="note">Note</label>
           <input
             type="text"
@@ -141,9 +125,11 @@ const Submit = ({ records, date, updateAccBal }) => {
           isInitialized: true,
         };
         const jsonRecord = JSON.stringify(InitRecord);
-        console.log(jsonRecord);
+
         localStorage.setItem("json", "[" + jsonRecord + "]");
-        document.location.reload(true);
+
+        setRecords(JSON.parse(localStorage.getItem("json")));
+        // document.location.reload(true);
       } else {
         document.querySelector(".amount").classList.add("error");
         setTimeout(

@@ -21,12 +21,8 @@ const PieChart = ({ records }) => {
       .sort((a, b) => a.type.localeCompare(b.type));
 
     const TypesWithExpenses = sortedRecords
-      .filter((e) => {
-        return e.checked === false;
-      })
-      .map((e) => {
-        return e.type;
-      });
+      .filter((e) => e.checked === false)
+      .map((e) => e.type);
 
     uniqueTypesWithExpenses = [...new Set(TypesWithExpenses)];
 
@@ -35,41 +31,25 @@ const PieChart = ({ records }) => {
     uniqueTypesWithExpenses.forEach((type) => {
       chartDataGrouped.push(
         sortedRecords
-          .filter((e) => {
-            return e.type === type && e.checked === false;
-          })
-          .map((e) => {
-            return e.amount;
-          })
-          .reduce((a, b) => {
-            return a + b;
-          })
+          .filter((e) => e.type === type && e.checked === false)
+          .map((e) => e.amount)
+          .reduce((a, b) => a + b)
       );
     });
 
     let chartDataDetails = sortedRecords
-      .filter((e) => {
-        return e.checked === false;
-      })
-      .map((e) => {
-        return e.amount;
-      });
+      .filter((e) => e.checked === false)
+      .map((e) => e.amount);
 
     let expensesNotes = sortedRecords
-      .filter((e) => {
-        return e.checked === false;
-      })
-      .map((e) => {
-        return e.note;
-      });
+      .filter((e) => e.checked === false)
+      .map((e) => e.note);
 
-    let expenses = sortedRecords.filter((e) => {
-      return e.checked === false;
-    });
+    let expenses = sortedRecords.filter((e) => e.checked === false);
 
     // charts colors
 
-    const lightenColor = function(color) {
+    const darkenColor = function(color) {
       let rgba = color;
 
       rgba = rgba.replace(/[^\d,]/g, "").split(",");
@@ -100,23 +80,22 @@ const PieChart = ({ records }) => {
         if (grpClr.name === e) groupedColorsArray.push(grpClr.color);
       });
 
-      //color lightening
+      //color darkening
 
+      // counting how many records by type there are
       const counts = [];
 
       TypesWithExpenses.forEach((x) => {
         counts[x] = (counts[x] || 0) + 1;
       });
 
-      let tempColor = lightenColor(groupedColorsArray[index]);
+      let tempColor = darkenColor(groupedColorsArray[index]);
 
       for (let i = 0; i < counts[e]; i++) {
         ungroupedColorsArray.push(tempColor);
-        tempColor = lightenColor(tempColor);
+        tempColor = darkenColor(tempColor);
       }
     });
-
-    // Piedata
 
     const pieData = {
       labels: uniqueTypesWithExpenses,
@@ -142,17 +121,15 @@ const PieChart = ({ records }) => {
           datalabels: {
             display: false,
           },
-          oredr: 0,
         },
         {
           radius: 350,
-          id: 1,
           type: "pie",
+          id: 1,
           data: chartDataGrouped,
           backgroundColor: groupedColorsArray,
           borderColor: groupedColorsArray,
           borderWidth: 1,
-          order: 1,
         },
       ],
     };

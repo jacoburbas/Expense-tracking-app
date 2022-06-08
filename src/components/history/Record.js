@@ -1,14 +1,12 @@
 import React from "react";
 import "../../style/history/record.css";
 
-const Record = ({ records, record, id, updateAccBal }) => {
+const Record = ({ records, record, id, updateAccBal, setRecords }) => {
   const deleteRecord = () => {
-    records = records.filter((e, index) => {
-      return id !== index;
-    });
-    updateAccBal(records);
-    localStorage.setItem("json", JSON.stringify(records));
-    document.location.reload(true);
+    const newjson = records.filter((e, index) => id !== index);
+    updateAccBal(newjson);
+    localStorage.setItem("json", JSON.stringify(newjson));
+    setRecords(newjson);
   };
 
   return (

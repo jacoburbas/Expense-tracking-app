@@ -3,33 +3,23 @@ import { Doughnut } from "react-chartjs-2";
 import { groupsColors } from "../../rightCharts/chartsData/PieChart";
 
 const DoughnutChart = ({ records }) => {
-  let incomeDataGrouped = [];
-
+  //
   const uniqueIncomeTypes = [
     ...new Set(
       records
-        .filter((e) => {
-          return e.checked === true;
-        })
-        .map((e) => {
-          return e.type;
-        })
+        .filter((e) => (e.checked === true) & (e.type !== "Starting amount"))
+        .map((e) => e.type)
     ),
   ];
+
+  let incomeDataGrouped = [];
 
   uniqueIncomeTypes.forEach((type) => {
     incomeDataGrouped.push(
       records
-        .filter((e) => {
-          return e.type === type;
-        })
-
-        .map((e) => {
-          return e.amount;
-        })
-        .reduce((a, b) => {
-          return a + b;
-        })
+        .filter((e) => e.type === type)
+        .map((e) => e.amount)
+        .reduce((a, b) => a + b)
     );
   });
 
@@ -84,6 +74,7 @@ const DoughnutChart = ({ records }) => {
       },
     },
   };
+
   return (
     <div id="dough-chart" className="chart-box">
       <Doughnut data={doughnutData} options={doughnutOptions}></Doughnut>

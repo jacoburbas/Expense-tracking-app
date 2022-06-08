@@ -1,7 +1,7 @@
 import React from "react";
-import "../../style/charts.css";
 import BarChart from "./chartsData/BarChart";
 import PieChart from "./chartsData/PieChart";
+import "../../style/charts.css";
 
 const Charts = ({ records }) => {
   return (

@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Balance from "./components/Balance";
-import Submit from "./components/Submit";
+import Submit from "./components/submit/Submit";
 import History from "./components/history/History";
 import Charts from "./components/rightCharts/Charts";
 import TimeDate from "./components/TimeDate";
@@ -37,22 +37,9 @@ ChartJS.register(
   Filler
 );
 
-let jsonRecords = JSON.parse(localStorage.getItem("json") || "[]");
-
-if (!jsonRecords.length) {
-  localStorage.setItem("json", JSON.stringify(exampleData));
-}
-
-jsonRecords = JSON.parse(localStorage.getItem("json") || "[0]");
-
-//records without the initializer record
-const jsonRecordsNoInit = jsonRecords.filter((e, index) => {
-  return index !== jsonRecords.length - 1;
-});
-
 const App = () => {
   useEffect(() => {
-    updateAccBal(jsonRecords);
+    updateAccBal(records);
   }, []);
 
   const todaysFullDate = new Date();
@@ -60,6 +47,13 @@ const App = () => {
   const mm = String(todaysFullDate.getMonth() + 1).padStart(2, "0");
   const yyyy = String(todaysFullDate.getFullYear());
   const formattedDate = yyyy + "-" + mm + "-" + dd;
+  const [records, setRecords] = useState(
+    JSON.parse(localStorage.getItem("json") || "[]")
+  );
+  if (!records.length) {
+    localStorage.setItem("json", JSON.stringify(exampleData));
+    setRecords(JSON.parse(localStorage.getItem("json") || "[]"));
+  }
 
   function updateAccBal(array) {
     for (let i = array.length - 1; i >= 0; i--) {
@@ -70,23 +64,27 @@ const App = () => {
       }
     }
   }
-
   return (
     <div className="App">
       <div className="section">
         <TimeDate date={[dd, mm, yyyy]} />
-        <Balance records={jsonRecords} />
+        <Balance records={records} />
         <Submit
-          records={jsonRecords}
+          records={records}
           date={formattedDate}
           updateAccBal={updateAccBal}
+          setRecords={setRecords}
         />
-        <History records={jsonRecords} updateAccBal={updateAccBal} />
-        <Charts records={jsonRecordsNoInit} />
+        <History
+          records={records}
+          updateAccBal={updateAccBal}
+          setRecords={setRecords}
+        />
+        <Charts records={records} />
       </div>
 
       <div id="sec2" className="section">
-        <BottomCharts records={jsonRecordsNoInit} />
+        <BottomCharts records={records} />
         <Footer />
       </div>
     </div>

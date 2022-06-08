@@ -68,12 +68,8 @@ const MultiLineChart = ({ records }) => {
                       e.type === type
                     );
                   })
-                  .map((e) => {
-                    return e.amount;
-                  })
-                  .reduce((a, b) => {
-                    return a + b;
-                  })
+                  .map((e) => e.amount)
+                  .reduce((a, b) => a + b)
               )
             : object.data.push(0);
         });

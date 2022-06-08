@@ -3,37 +3,28 @@ import { Bar } from "react-chartjs-2";
 
 const TotalChart = ({ records }) => {
   let totalExpenses = [];
+
+  const expenseRecords = records.filter((e) => e.checked === false);
+
+  if (expenseRecords.length) {
+    totalExpenses = records
+      .filter((e) => e.checked === false)
+      .map((e) => e.amount)
+      .reduce((a, b) => a + b);
+  }
+
   let totalIncome = [];
 
-  records.filter((e) => {
-    return e.checked === false;
-  }).length
-    ? (totalExpenses = records
-        .filter((e) => {
-          return e.checked === false;
-        })
-        .map((e) => {
-          return e.amount;
-        })
-        .reduce((a, b) => {
-          return a + b;
-        }))
-    : console.log("");
+  const incomeRecords = records.filter(
+    (e) => (e.checked === true) & (e.type !== "Starting amount")
+  );
 
-  records.filter((e) => {
-    return e.checked === true;
-  }).length
-    ? (totalIncome = records
-        .filter((e) => {
-          return e.checked === true;
-        })
-        .map((e) => {
-          return e.amount;
-        })
-        .reduce((a, b) => {
-          return a + b;
-        }))
-    : console.log("");
+  if (incomeRecords.length) {
+    totalIncome = records
+      .filter((e) => e.checked === true)
+      .map((e) => e.amount)
+      .reduce((a, b) => a + b);
+  }
 
   const horizontalBarData = {
     labels: [""],
