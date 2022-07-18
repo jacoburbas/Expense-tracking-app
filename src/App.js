@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Balance from "./components/Balance";
 import Submit from "./components/submit/Submit";
+import ResetButton from "./components/resetButton/ResetButton";
 import History from "./components/history/History";
 import Charts from "./components/rightCharts/Charts";
 import TimeDate from "./components/TimeDate";
@@ -50,6 +51,8 @@ const App = () => {
   const [records, setRecords] = useState(
     JSON.parse(localStorage.getItem("json") || "[]")
   );
+  const [resBtn, setResBtn] = useState(false);
+
   if (!records.length) {
     localStorage.setItem("json", JSON.stringify(exampleData));
     setRecords(JSON.parse(localStorage.getItem("json") || "[]"));
@@ -74,7 +77,9 @@ const App = () => {
           date={formattedDate}
           updateAccBal={updateAccBal}
           setRecords={setRecords}
+          setResBtn={setResBtn}
         />
+        {resBtn ? <ResetButton /> : ""}
         <History
           records={records}
           updateAccBal={updateAccBal}

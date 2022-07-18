@@ -25,17 +25,17 @@
 .size-1 > #icon-box {
   height: 2vw;
   width: 2vw;
-  font-size: 100%;
+  font-size: 0.9vw;
 }
 .size-2 > #icon-box {
   height: 2.5vw;
   width: 2.5vw;
-  font-size: 110%;
+  font-size: 1vw;
 }
 .size-3 > #icon-box {
   height: 3vw;
   width: 3vw;
-  font-size: 140%;
+  font-size: 1.2vw;
 }
 
 .record-box {

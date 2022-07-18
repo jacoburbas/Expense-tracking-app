@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../style/submit/submit.css";
 import { expenseOptions, incomeOptions } from "./selectOptions";
 
-const Submit = ({ records, date, updateAccBal, setRecords }) => {
+const Submit = ({ records, date, updateAccBal, setRecords, setResBtn }) => {
   const array = expenseOptions.map((e, index) => {
     return (
       <option key={index} value={e.value}>
@@ -17,6 +17,7 @@ const Submit = ({ records, date, updateAccBal, setRecords }) => {
   const [amount, setAmount] = useState(0);
 
   if (records[records.length - 1].isInitialized) {
+    setResBtn(true);
     const handleSubmit = (e) => {
       e.preventDefault();
 
@@ -35,6 +36,8 @@ const Submit = ({ records, date, updateAccBal, setRecords }) => {
         updateAccBal(records);
         localStorage.setItem("json", JSON.stringify(records));
         setRecords(JSON.parse(localStorage.getItem("json")));
+        setAmount(0);
+        setNote("");
       } else {
         // add error class to input
         document.querySelector(".amount").classList.add("error");
@@ -129,7 +132,7 @@ const Submit = ({ records, date, updateAccBal, setRecords }) => {
         localStorage.setItem("json", "[" + jsonRecord + "]");
 
         setRecords(JSON.parse(localStorage.getItem("json")));
-        // document.location.reload(true);
+        setAmount(0);
       } else {
         document.querySelector(".amount").classList.add("error");
         setTimeout(

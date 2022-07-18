@@ -24,15 +24,15 @@
 
 #bar-chart {
   width: 15vw;
-  height: 15vw;
+  height: 25vh;
 }
 
 #multi-line-chart {
   width: 50vw;
-  height: 25vw;
+  height: 55vh;
 }
 
 #dough-chart {
   width: 20vw;
-  height: 20vw;
+  height: 35vh;
 }

@@ -2,6 +2,7 @@ import React from "react";
 import { Pie } from "react-chartjs-2";
 
 export let uniqueTypesWithExpenses = [];
+
 export const groupsColors = [
   { name: "Clothes", color: "rgba(255, 243, 120, 1)" }, //0
   { name: "Electronics", color: "rgba(255, 154, 100, 1)" }, //1

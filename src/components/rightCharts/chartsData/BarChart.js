@@ -103,14 +103,12 @@ const BarChart = ({ records }) => {
         data: monthlyIncome,
         backgroundColor: "rgba(40, 160, 170, 1)",
         borderColor: "rgba(40, 160, 170, 1)",
-        borderWidth: 1,
       },
       {
         label: "Expenses",
         data: monthlyExpenses,
         backgroundColor: "rgba(245, 90, 110, 1)",
         borderColor: "rgba(245, 90, 110, 1)",
-        borderWidth: 1,
       },
     ],
   };
