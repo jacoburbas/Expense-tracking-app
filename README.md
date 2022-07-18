@@ -1,4 +1,4 @@
-Small React app that uses graphs to show you, what are you spending your hard earned money on.
+Small React app that uses graphs to show you, what are you spending your money on.
 
 ![screen](https://user-images.githubusercontent.com/60938716/172372073-6eff2c34-28f0-4891-9da5-a66d88faa8f2.png)
 
