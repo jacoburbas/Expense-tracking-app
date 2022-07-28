@@ -1,7 +1,8 @@
 import React from "react";
-import "../style/timeDate/timeDate.css";
+import { date } from "../exports/dateVariables";
+import "../../style/timeDate/timeDate.css";
 
-const TimeDate = ({ date }) => {
+const DateBox = () => {
   const monthsNames = [
     "January",
     "February",
@@ -18,15 +19,15 @@ const TimeDate = ({ date }) => {
   ];
 
   const month = monthsNames[parseInt(date[1] - 1)];
+
   return (
     <div className="timeDate">
       <div id="day-month">
         {date[0]} {month},
       </div>
-
       <div id="year">{date[2]}</div>
     </div>
   );
 };
 
-export default TimeDate;
+export default DateBox;

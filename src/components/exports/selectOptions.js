@@ -1,3 +1,4 @@
+import React from "react";
 export const expenseOptions = [
   new Option("Food & Drinks", "Food & Drinks"),
   new Option("Transport", "Transport"),
@@ -17,3 +18,11 @@ export const incomeOptions = [
   new Option("Hobbys", "Hobbys"),
   new Option("Other", "Other"),
 ];
+
+export const options = expenseOptions.map((e, index) => {
+  return (
+    <option key={index} value={e.value}>
+      {e.text}
+    </option>
+  );
+});

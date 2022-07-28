@@ -1,19 +1,8 @@
 import React from "react";
 import { Pie } from "react-chartjs-2";
-
+import { typesColors } from "../../exports/typesColors";
+import { pieOptions } from "./pieOptions";
 export let uniqueTypesWithExpenses = [];
-
-export const groupsColors = [
-  { name: "Clothes", color: "rgba(255, 243, 120, 1)" }, //0
-  { name: "Electronics", color: "rgba(255, 154, 100, 1)" }, //1
-  { name: "Food & Drinks", color: "rgba(238, 110, 90, 1)" }, //2
-  { name: "Health", color: "rgba(219, 64, 144, 1)" }, //3
-  { name: "Hobbys", color: "rgba(170,75,220,1)" }, //4
-  { name: "Home & Utilities", color: "rgba(90, 90, 167, 1)" }, //5
-  { name: "Other", color: "rgba(20, 112, 167, 1)" }, //6
-  { name: "Rent", color: "rgba(30, 140, 158, 1)" }, //7
-  { name: "Transport", color: "rgba(115,169,187,1)" }, //8
-];
 
 const PieChart = ({ records }) => {
   if (records) {
@@ -77,7 +66,7 @@ const PieChart = ({ records }) => {
 
     uniqueTypesWithExpenses.forEach((e, index) => {
       //grouped expenses background colors
-      groupsColors.forEach((grpClr) => {
+      typesColors.forEach((grpClr) => {
         if (grpClr.name === e) groupedColorsArray.push(grpClr.color);
       });
 
@@ -135,6 +124,7 @@ const PieChart = ({ records }) => {
       ],
     };
 
+    //add notes onHover
     const footer = (tooltipItems) => {
       let expNote = "";
       tooltipItems.forEach((e, index) => {
@@ -144,49 +134,17 @@ const PieChart = ({ records }) => {
           expNote = "";
         }
       });
+
+      pieOptions.plugins.tooltip.callbacks.footer = footer;
+
+      pieOptions.plugins.tooltip.callbacks.label = (e) => {
+        if (e.datasetIndex === 1) {
+          e.label = expenses[e.dataIndex].type;
+          return e.label + ":" + e.parsed;
+        } else return e.label + ":" + e.parsed;
+      };
+
       return expNote.toString();
-    };
-
-    const pieOptions = {
-      maintainAspectRatio: false,
-      plugins: {
-        responsive: true,
-        datalabels: {
-          textShadowBlur: 4,
-          textShadowColor: "black",
-          color: "#FFF",
-          font: { family: "Nunito", size: 15 }, // CHART FONT
-          // percentage calculation
-          formatter: function(value, context) {
-            return (
-              (
-                (value /
-                  context.dataset.data.reduce((a, b) => {
-                    return a + b;
-                  })) *
-                100
-              ).toFixed(0) + "%"
-            );
-          },
-        },
-        legend: {
-          labels: { boxWidth: 8, usePointStyle: true },
-          onClick: function() {}, //disabling onClick function
-          position: "top",
-        },
-
-        tooltip: {
-          callbacks: {
-            footer: footer,
-            label: (e) => {
-              if (e.datasetIndex === 1) {
-                e.label = expenses[e.dataIndex].type;
-                return e.label + ":" + e.parsed;
-              } else return e.label + ":" + e.parsed;
-            },
-          },
-        },
-      },
     };
 
     return (

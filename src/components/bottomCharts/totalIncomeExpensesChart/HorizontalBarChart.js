@@ -1,6 +1,6 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-
+import { horizontalBarOptions } from "./HorizontalBarOptions";
 const TotalChart = ({ records }) => {
   let totalExpenses = [];
 
@@ -42,36 +42,6 @@ const TotalChart = ({ records }) => {
         backgroundColor: "rgba(245, 90, 110, 1)",
       },
     ],
-  };
-
-  const horizontalBarOptions = {
-    maintainAspectRatio: false,
-    indexAxis: "y",
-    plugins: {
-      datalabels: {
-        color: "#FFF",
-        textShadowBlur: 2,
-        textShadowColor: "black",
-        font: { family: "Nunito", size: 13 },
-      },
-      legend: {
-        labels: { boxWidth: 8, usePointStyle: true },
-      },
-    },
-    scales: {
-      y: {
-        grid: { display: false },
-        ticks: {
-          display: true,
-        },
-      },
-      x: {
-        grid: { display: false },
-        ticks: {
-          display: false,
-        },
-      },
-    },
   };
 
   return (

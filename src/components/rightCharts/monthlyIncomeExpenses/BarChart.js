@@ -1,5 +1,7 @@
 import React, { useEffect } from "react";
 import { Bar } from "react-chartjs-2";
+import { monthsNames } from "../../exports/dateVariables";
+import { barOptions } from "./barOptions";
 
 export let BarLabels = [];
 export let monthlyExpenses = [];
@@ -50,25 +52,12 @@ const BarChart = ({ records }) => {
       );
     });
 
-    const monthsNames = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
-
+    //bar labels
     uniqueMonths.forEach((e) => {
       BarLabels.push(monthsNames[parseInt(e) - 1]);
     });
 
+    //monthly expenses
     uniqueMonthsWithExp.forEach((month) => {
       monthlyExpenses.push(
         records
@@ -80,6 +69,7 @@ const BarChart = ({ records }) => {
       );
     });
 
+    //monthly income
     uniqueMonthsWithInc.forEach((month) => {
       monthlyIncome.push(
         records
@@ -111,35 +101,6 @@ const BarChart = ({ records }) => {
         borderColor: "rgba(245, 90, 110, 1)",
       },
     ],
-  };
-
-  const barOptions = {
-    plugins: {
-      legend: {
-        labels: { boxWidth: 8, usePointStyle: true },
-      },
-      datalabels: {
-        align: "top",
-        color: "#FFF",
-        textShadowBlur: 4,
-        textShadowColor: "black",
-        font: { family: "Nunito", size: 13 },
-      },
-    },
-    scales: {
-      y: {
-        grid: { display: false },
-        ticks: {
-          display: true,
-        },
-      },
-      x: {
-        grid: { display: false },
-        ticks: {
-          display: true,
-        },
-      },
-    },
   };
 
   return (

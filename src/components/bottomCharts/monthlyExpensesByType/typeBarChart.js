@@ -1,8 +1,12 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { BarLabels, uniqueMonths } from "../../rightCharts/chartsData/BarChart";
-import { uniqueTypesWithExpenses } from "../../rightCharts/chartsData/PieChart";
-import { groupsColors } from "../../rightCharts/chartsData/PieChart";
+import { typesColors } from "../../exports/typesColors";
+import {
+  BarLabels,
+  uniqueMonths,
+} from "../../rightCharts/monthlyIncomeExpenses/BarChart";
+import { uniqueTypesWithExpenses } from "../../rightCharts/doubleCircleGraph/PieChart";
+import { typeBarOptions } from "./typeBarOptions";
 
 const MultiLineChart = ({ records }) => {
   const dataObj = [
@@ -77,97 +81,70 @@ const MultiLineChart = ({ records }) => {
     });
   });
 
-  const options = {
-    maintainAspectRatio: false,
-    stacked: true,
-    plugins: {
-      legend: {
-        labels: { boxWidth: 8, usePointStyle: true },
-      },
-      datalabels: {
-        display: false,
-      },
-    },
-    scales: {
-      y: {
-        grid: { display: false },
-        ticks: {
-          display: true,
-        },
-      },
-      x: {
-        grid: { display: false },
-        ticks: {
-          display: true,
-        },
-      },
-    },
-  };
-
   const data = {
     labels: BarLabels,
     datasets: [
       {
         label: "Clothes",
         data: dataObj[0].data,
-        borderColor: groupsColors[0].color,
-        backgroundColor: groupsColors[0].color,
+        borderColor: typesColors[0].color,
+        backgroundColor: typesColors[0].color,
         tension: 0.3,
       },
       {
         label: "Electronics",
         data: dataObj[1].data,
-        borderColor: groupsColors[1].color,
-        backgroundColor: groupsColors[1].color,
+        borderColor: typesColors[1].color,
+        backgroundColor: typesColors[1].color,
         tension: 0.3,
       },
       {
         label: "Food & Drinks",
         data: dataObj[2].data,
-        borderColor: groupsColors[2].color,
-        backgroundColor: groupsColors[2].color,
+        borderColor: typesColors[2].color,
+        backgroundColor: typesColors[2].color,
         tension: 0.3,
       },
       {
         label: "Health",
         data: dataObj[3].data,
-        borderColor: groupsColors[3].color,
-        backgroundColor: groupsColors[3].color,
+        borderColor: typesColors[3].color,
+        backgroundColor: typesColors[3].color,
         tension: 0.3,
       },
       {
         label: "Hobbys",
         data: dataObj[4].data,
-        borderColor: groupsColors[4].color,
-        backgroundColor: groupsColors[4].color,
+        borderColor: typesColors[4].color,
+        backgroundColor: typesColors[4].color,
         tension: 0.3,
       },
       {
         label: "Home & Utilities",
         data: dataObj[5].data,
-        borderColor: groupsColors[5].color,
-        backgroundColor: groupsColors[5].color,
+        borderColor: typesColors[5].color,
+        backgroundColor: typesColors[5].color,
         tension: 0.3,
       },
       {
         label: "Other",
         data: dataObj[6].data,
-        borderColor: groupsColors[6].color,
-        backgroundColor: groupsColors[6].color,
+        borderColor: typesColors[6].color,
+        backgroundColor: typesColors[6].color,
         tension: 0.3,
       },
       {
         label: "Rent",
         data: dataObj[7].data,
-        borderColor: groupsColors[7].color,
-        backgroundColor: groupsColors[7].color,
+        borderColor: typesColors[7].color,
+        backgroundColor: typesColors[7].color,
         tension: 0.3,
       },
       {
         label: "Transport",
         data: dataObj[8].data,
-        borderColor: groupsColors[8].color,
-        backgroundColor: groupsColors[8].color,
+        borderColor: typesColors[8].color,
+        backgroundColor: typesColors[8].color,
         tension: 0.3,
       },
     ],
@@ -175,7 +152,7 @@ const MultiLineChart = ({ records }) => {
 
   return (
     <div id="multi-line-chart" className="chart-box">
-      <Bar options={options} data={data} />
+      <Bar options={typeBarOptions} data={data} />
     </div>
   );
 };

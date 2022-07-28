@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import InfiniteScroll from "react-infinite-scroll-component";
+import updateAccBal from "../exports/updateBalanceFunc";
 import Record from "./Record";
 import "../../style/history/history.css";
 
-const History = ({ records, updateAccBal, setRecords }) => {
+const History = ({ records, setRecords }) => {
   const numberOfRecords = 10;
   let [i, setI] = useState(1);
   let numberToShow = i * 10;
 
   if (records) {
     function hasMore() {
-      if (i * numberOfRecords - records.length >= 0) {
-        return true;
-      } else {
-        return false;
-      }
+      if (i * numberOfRecords - records.length >= 0) return true;
+      else return false;
     }
 
     function fetchData() {
@@ -29,7 +27,7 @@ const History = ({ records, updateAccBal, setRecords }) => {
           hasMore={hasMore()}
           endMessage={
             <div id="endBtn">
-              <button onClick={fetchData}>Load More divs</button>
+              <button onClick={fetchData}>Load More records</button>
             </div>
           }
         >

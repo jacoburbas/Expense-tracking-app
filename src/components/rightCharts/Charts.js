@@ -1,9 +1,9 @@
 import React from "react";
-import BarChart from "./chartsData/BarChart";
-import PieChart from "./chartsData/PieChart";
+import BarChart from "./monthlyIncomeExpenses/BarChart";
+import PieChart from "./doubleCircleGraph/PieChart";
 import "../../style/charts.css";
 
-const Charts = ({ records }) => {
+const RightCharts = ({ records }) => {
   return (
     <div className="charts">
       <div id="name">Expenses by type</div>
@@ -14,4 +14,4 @@ const Charts = ({ records }) => {
   );
 };
 
-export default Charts;
+export default RightCharts;
