@@ -2,14 +2,14 @@
   height: 100%;
   display: flex;
   justify-content: space-around;
-  width: 25vw;
+  width: 30em;
   align-items: center;
   background-color: white;
-  margin: 2vh 0.5vw 2vh 1vw;
+  margin: 1.3em 0.5em 1.3em 1em;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 15px -3px,
     rgba(0, 0, 0, 0.03) 0px 2px 6px -2px;
   border-radius: 20px;
-  padding-left: 1.5vw;
+  padding-left: 1.5em;
 }
 
 .size-1 {
@@ -23,23 +23,23 @@
 }
 
 .size-1 > #icon-box {
-  height: 2vw;
-  width: 2vw;
-  font-size: 0.9vw;
+  height: 2.3em;
+  width: 2.3em;
+  font-size: 1em;
 }
 .size-2 > #icon-box {
-  height: 2.5vw;
-  width: 2.5vw;
-  font-size: 1vw;
+  height: 2.4em;
+  width: 2.4em;
+  font-size: 1.3em;
 }
 .size-3 > #icon-box {
-  height: 3vw;
-  width: 3vw;
-  font-size: 1.2vw;
+  height: 2.6em;
+  width: 2.6em;
+  font-size: 1.6em;
 }
 
 .record-box {
-  padding: 1vw;
+  padding: 1em;
 }
 
 #icon-box {
@@ -56,22 +56,23 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  height: 2.7vw;
+  height: 3em;
   width: 45%;
 }
 
 .type-date-box {
   color: rgb(139, 139, 139);
-  font-size: 0.8vw;
+  font-size: 0.95em;
+  white-space: nowrap;
 }
 .note-box {
   font-weight: 500;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.07);
-  font-size: 0.9vw;
+  font-size: 1em;
 }
 
 .record-amount {
-  font-size: 1vw;
+  font-size: 1.2em;
 }
 .green {
   color: rgb(35, 137, 146);

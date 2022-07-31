@@ -9,9 +9,18 @@ const Submit = ({ records, setRecords, setResBtn }) => {
   });
 
   if (records[records.length - 1].isInitialized) {
-    return <SubmitAfter records={records} setRecords={setRecords} />;
+    return (
+      <div className="SubmitContainer">
+        <SubmitAfter records={records} setRecords={setRecords} />
+      </div>
+    );
   } else {
-    return <SubmitBefore setRecords={setRecords} />;
+    return (
+      <div className="SubmitContainer">
+        <SubmitAfter records={records} setRecords={setRecords} />
+        <SubmitBefore setRecords={setRecords} />
+      </div>
+    );
   }
 };
 

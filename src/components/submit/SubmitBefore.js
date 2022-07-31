@@ -24,27 +24,27 @@ const SubmitBefore = ({ setRecords }) => {
       setRecords(JSON.parse(localStorage.getItem("json")));
       setAmount(0);
     } else {
-      document.querySelector(".amount").classList.add("error");
+      document.querySelector(".amountBefore").classList.add("error");
       setTimeout(
-        () => document.querySelector(".amount").classList.remove("error"),
+        () => document.querySelector(".amountBefore").classList.remove("error"),
         2000
       );
     }
   };
 
   return (
-    <div className="Submit">
+    <div className="Submit SubmitBefore">
       <div id="name">Let's start</div>
       <div className="info-text">
         This is example data. <br />
-        You can delete previous records and play with charts. In order to start,
-        enter your current account state below
+        You can add new or dele previous records and play with charts. To start,
+        enter your current account state:
       </div>
 
       <form onSubmit={handleInitSubmit}>
         <div className="input-box">
           <input
-            className="amount good"
+            className="amountBefore good"
             type="number"
             name="amount"
             value={amount}

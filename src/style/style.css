@@ -16,7 +16,7 @@
 
 .App {
   display: flex;
-  width: 100%;
+  min-width: 1500px;
   flex-direction: column;
   overflow: scroll;
   align-items: center;
@@ -28,7 +28,7 @@
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(12, 1fr);
-  gap: 2vw;
+  gap: 30px;
   width: 100%;
   height: 93vh;
   padding-bottom: 1vw;
@@ -69,7 +69,7 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   border-radius: 100vh;
-  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 0 10px 10px rgba(0, 0, 0, 0.3);
   border: solid 3px transparent;
 }
 

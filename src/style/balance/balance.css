@@ -7,5 +7,5 @@
   align-items: center;
 }
 .lineChart {
-  width: 25vw;
+  flex-basis: 58%;
 }
