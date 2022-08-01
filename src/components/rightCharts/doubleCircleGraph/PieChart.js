@@ -100,8 +100,8 @@ const PieChart = ({ records }) => {
           },
         },
         {
-          radius: 240,
-          cutout: 80,
+          radius: 250,
+          cutout: 90,
           type: "doughnut",
           id: 2,
           data: chartDataDetails,
