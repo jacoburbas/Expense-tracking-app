@@ -36,6 +36,7 @@ const LineChart = ({ records }) => {
     };
 
     const lineOptions = {
+      maintainAspectRatio: false,
       elements: {
         point: { radius: 0, hitRadius: 10 },
       },

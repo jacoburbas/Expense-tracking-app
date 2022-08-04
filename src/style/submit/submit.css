@@ -2,15 +2,14 @@
   flex-basis: 40%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   font-size: 0.8vw;
   background-color: white;
   border-radius: 30px;
-  padding: 1vw;
+  padding: 1vh 0.8vw;
   box-shadow: rgb(0 0 0 / 15%) 0px 8px 15px -3px,
     rgb(0 0 0 / 5%) 0px 3px 6px -2px;
-  margin: 10px;
+  margin: 1.1vh 1vw;
   height: fit-content;
 }
 .SubmitContainer {
@@ -22,32 +21,30 @@
   box-shadow: none !important;
 }
 
-.SubmitBefore {
-  padding-top: 0px !important;
-}
-.SubmitBefore > #name {
-  margin-top: 1em;
-  margin-bottom: 0.6em;
+.Submit #name {
+  white-space: nowrap;
+  margin-bottom: 0.4vh;
 }
 .Submit > form {
+  width: 90%;
   display: flex;
   flex-direction: column;
 }
 
 .Submit > form > * {
-  margin: 4px 0vw;
+  margin: 0.2vw 0vw;
 }
 
 .Submit > form > label {
-  margin: 5px;
+  margin: 0.1vw 0.3vw 0.5vw 0.3vw;
   padding: 2px;
-  height: 0.5em;
+  height: 0.4vw;
 }
 
 .info-text {
-  font-size: 0.85vw;
+  font-size: 0.8vw;
   text-align: center;
-  margin-bottom: 1vh;
+  margin-bottom: 0.8vh;
 }
 
 .input-box {
@@ -58,15 +55,15 @@
 
 .Submit input,
 .Submit select {
-  margin: 5px;
+  margin: 0.1vw;
   width: 70%;
-  min-height: 25px;
+  min-height: 1.2vw;
 }
 
 #name {
   text-align: center;
   padding-bottom: 0.6vh;
-  margin: auto;
+  margin: 0px auto;
   width: 70%;
   font-size: 1vw;
   border-bottom: 2px solid var(--main);
@@ -102,14 +99,14 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-right: 0.4vw;
 }
 .Submit > form > select {
-  height: 4.5vh !important;
-  width: 85% !important;
+  width: 76%;
 }
 .Submit > form > #btn {
+  font-size: 0.8vw;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0.7vh auto;
+  margin: 0.6vh auto 0 auto;
   height: 3.8vh;
   width: 4.7vw;
   border-radius: 20px;
@@ -119,16 +116,12 @@ input[type="number"]::-webkit-outer-spin-button {
   transition: 100ms ease-in-out;
 }
 #btn:hover {
-  transform: scale(1.05);
-  background-image: linear-gradient(
-    45deg,
-    var(--main),
-    rgb(119, 0, 255)
-  ) !important;
+  scale: 1.05;
+
   cursor: pointer;
 }
 
-/* checkbox + - animation*/
+/* checkbox + - animation */
 
 .box-1 {
   display: flex;
@@ -186,17 +179,18 @@ input[type="number"]::-webkit-outer-spin-button {
 .amount,
 .amountBefore,
 .dataBox,
+.SubmitBefore input,
 .Submit > form > input,
 .Submit > form > select {
   display: flex;
   align-self: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.06);
-  border: 2px solid white;
+  border: 2px solid transparent;
   outline: none;
-  width: 80%;
   padding: 0px;
-  height: 4vh;
+  height: 3.8vh;
+  margin: 0.5vh !important;
   border-radius: 10px;
   padding-left: 0.6vw;
   transition: 150ms ease-out;
@@ -204,6 +198,7 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 0.8vw;
 }
 .amount:focus,
+.SubmitBefore input:focus,
 .Submit > form > input:focus,
 .Submit > form > select:focus {
   border: 2px solid var(--main);

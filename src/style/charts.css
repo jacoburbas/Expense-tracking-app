@@ -2,15 +2,26 @@
   grid-area: 1/9/13/13;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  align-items: center;
 }
+
+.charts > #name {
+  padding-bottom: 0.1vh;
+}
+
 .pie {
-  height: 62%;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 63%;
+  width: 29vw;
 }
 .bar {
-  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 29vh;
   width: 29vw;
-  background-color: white;
   border-radius: 15px;
 }

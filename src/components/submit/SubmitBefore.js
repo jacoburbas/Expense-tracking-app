@@ -37,8 +37,8 @@ const SubmitBefore = ({ setRecords }) => {
       <div id="name">Let's start</div>
       <div className="info-text">
         This is example data. <br />
-        You can add new or delete previous records and play with charts. To
-        start, enter your current account state:
+        You can add or delete records. To start, enter your current account
+        state:
       </div>
 
       <form onSubmit={handleInitSubmit}>

@@ -1,6 +1,6 @@
 export const barOptions = {
+  maintainAspectRatio: false,
   plugins: {
-    maintainAspectRatio: false,
     legend: {
       onHover: function(e) {
         e.native.target.style.cursor = "pointer";

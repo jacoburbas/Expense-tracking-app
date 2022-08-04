@@ -40,8 +40,7 @@ const App = () => {
         <History records={records} setRecords={setRecords} />
         <RightCharts records={records} />
       </div>
-
-      <div id="sec2" className="section">
+      <div className="section" id="sec2">
         <BottomCharts records={records} />
         <Footer />
       </div>

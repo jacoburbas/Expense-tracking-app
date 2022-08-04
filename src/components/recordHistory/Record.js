@@ -33,7 +33,7 @@ const RecordHistory = ({ records, record, id, updateAccBal, setRecords }) => {
       <span
         className={record.checked ? "green record-amount" : "red record-amount"}
       >
-        {(record.checked ? "+ " : "- ") + record.amount}
+        {(record.checked ? "+" : "-") + record.amount}
       </span>
 
       {/*hide delete button on starting record*/}

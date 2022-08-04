@@ -9,6 +9,7 @@
   align-items: center;
   border-top: 1.2vw solid white;
   border-bottom: 1.2vw solid white;
+  scrollbar-width: thin; /*  <-- firefox scrollbar */
 }
 
 /* custom scroll*/

@@ -5,11 +5,11 @@
   width: 27vw;
   align-items: center;
   background-color: white;
-  margin: 1.3em 0.5em 1.3em 1em;
+  margin: 1.5vh 0.5vw 1.5vh 1vw;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 15px -3px,
     rgba(0, 0, 0, 0.03) 0px 2px 6px -2px;
   border-radius: 20px;
-  padding-left: 1.5em;
+  padding-left: 1.2vw;
 }
 
 .size-1 {
@@ -23,23 +23,23 @@
 }
 
 .size-1 > #icon-box {
-  height: 2.3em;
-  width: 2.3em;
-  font-size: 1em;
+  height: 2vw;
+  width: 2vw;
+  font-size: 0.9vw;
 }
 .size-2 > #icon-box {
-  height: 2.4em;
-  width: 2.4em;
-  font-size: 1.3em;
+  height: 2.6vw;
+  width: 2.6vw;
+  font-size: 1.1vw;
 }
 .size-3 > #icon-box {
-  height: 2.6em;
-  width: 2.6em;
-  font-size: 1.6em;
+  height: 3.2vw;
+  width: 3.2vw;
+  font-size: 1.3vw;
 }
 
 .record-box {
-  padding: 1em;
+  padding: 0.8vw;
 }
 
 #icon-box {
@@ -56,23 +56,23 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
-  height: 3em;
+  height: 3.5vh;
   width: 45%;
 }
 
 .type-date-box {
   color: rgb(139, 139, 139);
-  font-size: 0.95em;
   white-space: nowrap;
+  font-size: 0.8vw;
 }
 .note-box {
   font-weight: 500;
   text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.07);
-  font-size: 1em;
+  font-size: 0.9vw;
 }
 
 .record-amount {
-  font-size: 1.2em;
+  font-size: 1vw;
 }
 .green {
   color: rgb(35, 137, 146);
@@ -97,8 +97,9 @@
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  width: 1vw;
-  height: 1vw;
+  width: 1.2vw;
+  height: 1.2vw;
+  font-size: 0.9vw;
   opacity: 0;
   transition: 120ms ease-in-out;
 }

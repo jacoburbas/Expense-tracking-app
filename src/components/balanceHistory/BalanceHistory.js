@@ -13,7 +13,10 @@ const BalanceHistory = ({ records }) => {
   return (
     <div className="balance">
       <DebitCard currentBalance={currentBalance} />
-      <LineChart records={records} />
+      <div id="balance-box">
+        <div id="name">Balance history</div>
+        <LineChart records={records} />
+      </div>
     </div>
   );
 };

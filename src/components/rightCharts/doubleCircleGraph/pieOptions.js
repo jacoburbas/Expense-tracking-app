@@ -1,5 +1,5 @@
 export const pieOptions = {
-  maintainAspectRatio: true,
+  maintainAspectRatio: false,
   plugins: {
     responsive: true,
     datalabels: {
