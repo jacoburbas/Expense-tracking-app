@@ -6,7 +6,7 @@
   font-size: 0.8vw;
   background-color: white;
   border-radius: 30px;
-  padding: 1vh 0.8vw;
+  padding: 1vw 0.8vw;
   box-shadow: rgb(0 0 0 / 15%) 0px 8px 15px -3px,
     rgb(0 0 0 / 5%) 0px 3px 6px -2px;
   margin: 1.1vh 1vw;
@@ -56,7 +56,7 @@
 .Submit input,
 .Submit select {
   margin: 0.1vw;
-  width: 70%;
+  width: 72%;
   min-height: 1.2vw;
 }
 
@@ -69,6 +69,9 @@
   border-bottom: 2px solid var(--main);
 }
 /*error classes*/
+input:-internal-autofill-selected {
+  background-color: rgba(255, 0, 0, 0.4) !important;
+}
 .good {
   background-color: white;
   transition: 0.5s ease-in-out;
@@ -99,7 +102,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-right: 0.4vw;
 }
 .Submit > form > select {
-  width: 76%;
+  width: 80%;
 }
 .Submit > form > #btn {
   font-size: 0.8vw;

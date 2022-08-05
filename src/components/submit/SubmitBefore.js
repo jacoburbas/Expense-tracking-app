@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { formattedDate } from "../exports/dateVariables";
 
 const SubmitBefore = ({ setRecords }) => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
 
   const handleInitSubmit = (e) => {
     e.preventDefault();
@@ -22,7 +22,7 @@ const SubmitBefore = ({ setRecords }) => {
       localStorage.setItem("json", "[" + jsonRecord + "]");
 
       setRecords(JSON.parse(localStorage.getItem("json")));
-      setAmount(0);
+      setAmount("");
     } else {
       document.querySelector(".amountBefore").classList.add("error");
       setTimeout(
@@ -44,13 +44,14 @@ const SubmitBefore = ({ setRecords }) => {
       <form onSubmit={handleInitSubmit}>
         <div className="input-box">
           <input
+            placeholder="0"
             className="amountBefore good"
             type="number"
             name="amount"
             value={amount}
             onBlur={(e) => {
               !e.target.value
-                ? setAmount(0)
+                ? setAmount("")
                 : setAmount(Math.abs(e.target.value));
             }}
             onChange={(e) => {

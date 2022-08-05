@@ -8,7 +8,7 @@ import {
 } from "../exports/selectOptions";
 
 const SubmitAfter = ({ records, setRecords }) => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState("");
   const [type, setType] = useState("Food & Drinks");
   const [note, setNote] = useState("");
   const [checked, setChecked] = useState(false);
@@ -31,7 +31,7 @@ const SubmitAfter = ({ records, setRecords }) => {
       updateAccBal(records);
       localStorage.setItem("json", JSON.stringify(records));
       setRecords(JSON.parse(localStorage.getItem("json")));
-      setAmount(0);
+      setAmount("");
       setNote("");
     } else {
       // add error class to input
@@ -77,12 +77,13 @@ const SubmitAfter = ({ records, setRecords }) => {
             onChange={handleCheckbox}
           />
           <input
+            placeholder="0"
             className="amount good"
             type="number"
             value={amount}
             onBlur={(e) => {
               !e.target.value
-                ? setAmount(0)
+                ? setAmount()
                 : setAmount(Math.abs(e.target.value));
             }}
             onChange={(e) => {
