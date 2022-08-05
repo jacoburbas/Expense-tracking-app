@@ -38,6 +38,8 @@
   .history {
     justify-self: center;
     grid-area: 5/4/13/7;
+    border-top: 3vw solid white;
+    border-bottom: 3vw solid white;
   }
 
   /* right charts */
