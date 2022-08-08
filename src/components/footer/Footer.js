@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <footer>
       Designed & Developed by Jakub Urbaś <br />
-      Contact: kubs978@gmail.com
+      Contact: kuba.urbas24@gmail.com
     </footer>
   );
 };
